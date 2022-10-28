@@ -17,7 +17,6 @@ namespace DZ_29._10._22
     abstract class Dogs
     {
         private string name;
-        private int info;
         public void Getname(string name)
         {
             this.name = name;
