@@ -322,6 +322,7 @@ namespace DZ_29._10._22
             //    writer.WriteLine(Console.ReadLine());
             //    writer.WriteLine(Console.ReadLine());
             //}
+            //
             
 
             string path1 = @"C:\Users\arsen\Documents\text\note1.txt";
