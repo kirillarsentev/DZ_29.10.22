@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Net;
@@ -50,6 +51,14 @@ namespace Toomakov_29._10._22
             id = int.Parse(Console.ReadLine());
             Console.WriteLine("Вашему счету присвоен уникальный ID : " + id);
         }
+        Random random = new Random();
+        private static int Id1;
+        public void PrintID()
+        {
+            Id1 = random.Next();
+            Id1++;
+            Console.WriteLine("Вам присвоен уникальный рандомный ID : " + Id1);
+        }
         public void Balance()
         {
             Console.WriteLine("Выберите пункт меню: " + '\n' + "1) Узнать баланс" + '\n' + "2) Пополнить баланс");
@@ -70,19 +79,120 @@ namespace Toomakov_29._10._22
 
 
         }
+
+
+
+
+
+        public void Withdraw()
+        {
+            Console.WriteLine("Снимите со счета желаемую сумму" + '\n' + "Какую сумму необходимо снять?");
+            int summ = int.Parse(Console.ReadLine());
+            if (balance < summ)
+            {
+                Console.WriteLine("Недостаточно средств на счете");
+                Balance();
+
+            }
+            else
+            {
+                Console.WriteLine("После снятия средств на балансе осталось : " + (balance - summ));
+            }
+
+        }
+    }
+
+
+    class Build
+    {
+        private int height;
+        private int floor;
+        private int flat;
+        private int entrance;
+        public Build(int height, int floor,int flat, int entrance)
+        { 
+            this.height = height;
+            this.floor = floor;
+            this.flat = flat;
+            this.entrance = entrance;
+        }
+        private static int number;
+        public void Number()
+        {
+            Random rnd = new Random();
+            number = rnd.Next();
+            number++;
+            Console.WriteLine("Уникальный номер дома :" + number);
+        }
+        public void HeightFloor()
+        {
+            Console.WriteLine("Высота одного этажа равна :" + height / floor);
+        }
+        public void Flat1_Count()
+        {
+            Console.WriteLine("Количество квартир в подъезде : " + flat/entrance);
+        }
+        public void Flat2_Count()
+        {
+            Console.WriteLine("Количество квартир на этаже : " + flat/floor);
+        }
+
+
+
     }
     internal class Program
     {
         
         static void Main(string[] args)
         {
-            Bank bank = new Bank();
-            bank.Name();
-            bank.ID();
-            bank.Balance();
+            //Console.WriteLine("Тумаков.Задача 7.1");
+            //Bank bank = new Bank();
+            //bank.Name();
+            //bank.ID();
+            //bank.Balance();
+
+
+            //Console.WriteLine("Тумаков.Задача 7.2");
+            //Bank bank1 = new Bank();
+            //bank1.Name();
+            //bank1.PrintID();
+            //bank1.Balance();
+
+            Console.WriteLine("Тумаков.Задача 7.3");
+            Bank bank2 = new Bank();
+            bank2.Name();
+            bank2.PrintID();
+            bank2.Balance();
+            bank2.Withdraw();
+
+
+            Console.WriteLine("Тумаков.Задача 7.4");
+            Console.WriteLine("Введите высоту, этажность, количество квартир , количество подъездов");
+            int height = int.Parse(Console.ReadLine());
+            int floor = int.Parse(Console.ReadLine());
+            int flats = int.Parse(Console.ReadLine());
+            int entrances = int.Parse(Console.ReadLine());
+            Build build = new Build(height,floor,flats,entrances);
+            build.HeightFloor();
+            build.Flat1_Count();
+            build.Flat2_Count();
+
             
 
 
+
+
+
+
+
+
+
+
+
         }
+
     }
+
+
+
 }
