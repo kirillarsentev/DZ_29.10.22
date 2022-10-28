@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
@@ -16,10 +17,12 @@ namespace DZ_29._10._22
     abstract class Dogs
     {
         private string name;
+        private int info;
         public void Getname(string name)
         {
             this.name = name;
         }
+       
     }
 
     class Dalmatian : Dogs
@@ -29,6 +32,11 @@ namespace DZ_29._10._22
         {
             base.Getname(name);
             Console.WriteLine("Порода собаки : " + name);
+        }
+        string info = "Далматины — грациозные собаки среднего размера с гладким мускулистым телом.";
+        public Dalmatian(int num)
+        { 
+            Console.WriteLine(info);
         }
 
 
@@ -94,6 +102,11 @@ namespace DZ_29._10._22
         {
             base.Getname(name);
             Console.WriteLine("Порода собаки : " + name);
+        }
+        string info = "Пудель – одна из самых добрых и послушных собак. Обладает незаурядным умом, выдающимся обонянием, слухом и зрением.";
+        public Poodle(int num)
+        {
+            Console.WriteLine(info);
         }
 
 
@@ -236,8 +249,8 @@ namespace DZ_29._10._22
         static void Main(string[] args)
         {
 
-
             Dalmatian dalmatian = new Dalmatian("Долматинец");
+            Dalmatian dalmatian1 = new Dalmatian(1);
             Console.WriteLine("Введите количество долматинцев попавших в приют : ");
             int dal_count = int.Parse(Console.ReadLine());
             dalmatian.Dal_count = dal_count;
@@ -263,6 +276,7 @@ namespace DZ_29._10._22
             dalmatian.Stroll();
 
             Poodle poodle = new Poodle("Пудель");
+            Poodle poodle1 = new Poodle(2);
             Console.WriteLine("Введите количество пуделей попавших в приют");
             int pood_count = int.Parse(Console.ReadLine());
             poodle.Pood_count = pood_count;
